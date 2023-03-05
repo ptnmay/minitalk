@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:57:21 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/06 05:38:28 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/06 05:40:49 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 # include <unistd.h>
 # include <stdio.h>
+# include <stdlib.h>
 
 #endif
