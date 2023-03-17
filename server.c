@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:56:32 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/17 21:44:44 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/18 03:06:27 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ void	handler(int sig)
 	static int	count;
 	static char alphabet;
 
+	count = 0;
+	alphabet = 0;
 	if (sig == SIGUSR1)
-	{
-		
-	}
+		alphabet = alphabet + 1;
 	count++;
 	if (count == 8)
 	{
@@ -39,8 +39,8 @@ int main(void)
 	ft_putstr("\n");
 	while (1)
 	{
-		sinal(SIGUSR1, handler);
-		sinal(SIGUSR2, handler);
+		signal(SIGUSR1, handler);
+		signal(SIGUSR2, handler);
 	}
 	
 }

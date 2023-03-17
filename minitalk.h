@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:57:21 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/17 00:00:41 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/18 03:36:32 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,15 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <signal.h>
+
+# define BLK "\e[0;30m"
+# define RED "\e[0;31m"
+# define GRN "\e[0;32m"
+# define YEL "\e[0;33m"
+# define BLU "\e[0;34m"
+# define MAG "\e[0;35m"
+# define CYN "\e[0;36m"
+# define WHT "\e[0;37m"
 
 int     ft_atoi(const char *str);
 void	ft_putendl_fd(char *s, int fd);
