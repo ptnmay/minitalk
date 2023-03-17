@@ -1,46 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   server.c                                           :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/06 03:56:32 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/17 21:44:44 by psaeyang         ###   ########.fr       */
+/*   Created: 2022/07/31 02:36:29 by psaeyang          #+#    #+#             */
+/*   Updated: 2023/03/16 22:57:43 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
 
-void	handler(int sig)
+void	ft_putendl_fd(char *s, int fd)
 {
-	static int	count;
-	static char alphabet;
-
-	if (sig == SIGUSR1)
+	if (!s)
+		return ;
+	while (*s)
 	{
-		
+		write(fd, s, 1);
+		s++;
 	}
-	count++;
-	if (count == 8)
-	{
-		ft_putchar(alphabet);
-		count = 0;
-		alphabet = 0;
-	}
-	else
-		alphabet <<= 1;
-}
-
-int main(void)
-{
-	ft_putstr("PID: ");
-	ft_putnbr(getpid());
-	ft_putstr("\n");
-	while (1)
-	{
-		sinal(SIGUSR1, handler);
-		sinal(SIGUSR2, handler);
-	}
-	
+	write(fd, "\n", 1);
 }
