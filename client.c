@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:56:15 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/19 00:13:05 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/19 02:03:23 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,9 +51,9 @@ void	deliver(char av, int pid)
 	int	bit;
 	int	shift;
 
-	bit = 8;
+	bit = 7;
 	shift = av;
-	while (bit >= 1)
+	while (bit >= 0)
 	{
 		if ((shift >> bit) & 1)
 		{
@@ -70,7 +70,7 @@ void	deliver(char av, int pid)
 	}
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	int	pid;
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:56:32 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/19 00:16:10 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/19 01:57:14 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,11 +50,9 @@ void	ft_putnbr(int n)
 
 void	handler(int sig)
 {
-	static int	count;
-	static int alphabet;
+	static int	count = 0;
+	static int	alphabet = 0;
 
-	count = 0;
-	alphabet = 0;
 	if (sig == SIGUSR1)
 		alphabet |= 1;
 	count++;
@@ -68,7 +66,7 @@ void	handler(int sig)
 		alphabet <<= 1;
 }
 
-int main(void)
+int	main(void)
 {
 	ft_putstr(CYN"SERVER PID: ");
 	ft_putnbr(getpid());

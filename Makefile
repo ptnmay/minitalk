@@ -6,7 +6,7 @@
 #    By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 05:36:11 by psaeyang          #+#    #+#              #
-#    Updated: 2023/03/18 21:04:25 by psaeyang         ###   ########.fr        #
+#    Updated: 2023/03/19 02:03:30 by psaeyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,10 +31,10 @@ $(NAME_C) : $(OBJ_C)
 				$(CC) $(CFLAGS) -o $(NAME_C) $(OBJ_C)
 
 clean :
-	RM $(OBJ_S) $(OBJ_C)
+	$(RM) $(OBJ_S) $(OBJ_C)
 
-fclean :
-	RM $(NAME_S) $(NAME_C)
+fclean : clean
+	$(RM) $(NAME_S) $(NAME_C)
 
 re : fclean all
 
