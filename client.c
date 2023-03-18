@@ -6,11 +6,22 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:56:15 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/18 18:18:35 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/19 00:13:05 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+
+void	ft_putstr(char *s)
+{
+	if (!s)
+		return ;
+	while (*s)
+	{
+		write (1, s, 1);
+		s++;
+	}
+}
 
 int	ft_atoi(const char *str)
 {
@@ -44,16 +55,17 @@ void	deliver(char av, int pid)
 	shift = av;
 	while (bit >= 1)
 	{
-		if ((shift >> bit) && 1)
+		if ((shift >> bit) & 1)
 		{
 			if (kill(pid, SIGUSR1) == -1)
-				exit(EXIT_FAILURE);
+				exit(EXIT_SUCCESS);
 		}
 		else
 		{
 			if (kill(pid, SIGUSR2) == -1)
-				exit(EXIT_FAILURE);
+				exit(EXIT_SUCCESS);
 		}
+		usleep(125);
 		bit--;
 	}
 }
@@ -64,12 +76,16 @@ int main(int ac, char **av)
 	int	i;
 
 	i = 0;
-	if (ac < 1 || ac != 3)
-		exit(0);
-	pid = ft_atoi(av[1]);
-	while (av[2][i])
+	if (ac == 3)
 	{
-		deliver(av[2][i], pid);
-		i++;
+		pid = ft_atoi(av[1]);
+		while (av[2][i])
+		{
+			deliver(av[2][i], pid);
+			i++;
+		}
 	}
+	if (ac != 3)
+		ft_putstr(RED"---something--wrong---\n");
+	return (0);
 }
