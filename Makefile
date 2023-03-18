@@ -6,39 +6,34 @@
 #    By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/06 05:36:11 by psaeyang          #+#    #+#              #
-#    Updated: 2023/03/17 00:07:20 by psaeyang         ###   ########.fr        #
+#    Updated: 2023/03/18 18:15:28 by psaeyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = minitalk
 SERVER = server.c
 CLIENT = client.c
-SRCS = utils.c
+
+OBJ_S = $(SERVER:.c=.o)
+OBJ_C = $(CLIENT:.c=.o)
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 RM = rm -rf
 
-all : $(NAME)
+NAME_S = server
+NAME_C = client
 
-$(NAME) : $(SERVER) $(CLIENT)
+all : $(NAME_S) $(NAME_C)
 
-server:
-	gcc $(CFLAGS) $(SERVER) $(SRCS) -o $(SERVER)
+$(NAME_S) : $(OBJ_S)
+				$(CC) $(CFLAGS) -o $(NAME_S) $(OBJ_S)
+$(NAME_C) : $(OBJ_C)
+				$(CC) $(CFLAGS) -o $(NAME_C) $(OBJ_C)
 
-client:
-	gcc $(C FLAGS) $(CLIENT) $(SRCS) -o $(CLIENT)
-
-$(OBJS): %.o: %.c
-	gcc $(CFLAGS) -c $< -o $@
-
-clean :
-	RM $(SERVER)
-	RM $(CLIENT)
-
-fclean : clean
-	RM $(NAME)
+fclean :
+	RM $(NAME_S)
+	RM $(NAME_C)
 
 re : fclean all
 
-.PHONY re all fclean
+.PHONY: re all fclean

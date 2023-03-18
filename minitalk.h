@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:57:21 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/18 03:36:32 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/18 18:21:17 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <sys/types.h>
 # include <signal.h>
+# include <stdlib.h>
+# include <stdio.h>
+
 
 # define BLK "\e[0;30m"
 # define RED "\e[0;31m"
