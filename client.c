@@ -6,7 +6,7 @@
 /*   By: psaeyang <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/06 03:56:15 by psaeyang          #+#    #+#             */
-/*   Updated: 2023/03/19 02:03:23 by psaeyang         ###   ########.fr       */
+/*   Updated: 2023/03/19 23:08:23 by psaeyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,14 +58,20 @@ void	deliver(char av, int pid)
 		if ((shift >> bit) & 1)
 		{
 			if (kill(pid, SIGUSR1) == -1)
+			{
+				ft_putstr(MAG"check pid again, please\n");
 				exit(EXIT_SUCCESS);
+			}
 		}
 		else
 		{
 			if (kill(pid, SIGUSR2) == -1)
+			{
+				ft_putstr(MAG"check pid again, please\n");
 				exit(EXIT_SUCCESS);
+			}
 		}
-		usleep(125);
+		usleep(12500);
 		bit--;
 	}
 }
